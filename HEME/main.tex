@@ -1,0 +1,204 @@
+\documentclass[border=2pt,crop]{standalone}
+\input{settings}
+
+\begin{document}
+\begin{tikzpicture}
+\tikzstyle{every node}=[inner sep=1.7pt,anchor=center]
+\tikzstyle{to_1}=[shorten >=5pt]
+%\tikzstyle{to_2}=[shorten >=7pt]%distance bt CA and c
+%\tikzstyle{to_3}=[shorten >=8pt]
+\tikzstyle{from_0}=[shorten <=3pt]
+\tikzstyle{from_1}=[shorten <=5pt]
+%\tikzstyle{from_1i}=[shorten <=6pt]
+\tikzstyle{from_2}=[shorten <=8pt]
+
+\begin{scope}[scale=0.5]
+ \node(Fe)at(0,0){Fe$^{II}$};
+ %========A
+ \draw(Fe)[to_1       ] -- ++(135:2)node(N21){N};
+ \draw(N21) --++ (  81:1)node(C4){}
+			--++ ( 153:1)node(C3){}
+			--++ (-135:1)node(C2){}
+			--++ ( -63:1)node(C1){};
+ \draw(C1.center) -- (N21);
+ \draw(C2.-9) -- (C1.63);
+ \draw(C4.207) -- (C3.-81);
+ %========B
+ \draw(Fe)[to_1,dotted] -- ++ (45:2)node(N22){};
+ \draw[from_0](N22) --++ ( -11:1)node(C9){};
+ \draw(C9.center)  --++ (  61:1)node(C8){}
+		    --++ ( 133:1)node(C7){}  
+		    --++ (-155:1)node(C6){}; 
+ \draw[from_0](N22) -- (C6.center);
+ \draw(C8.187) -- (C7.-101);
+ \draw[from_0](N22.43) -- (C9.115);
+ \draw(N22.center)node{N};
+ %========C
+ \draw(Fe)[to_1       ] -- ++(-45:2)node(N23){N};
+ \draw(N23) --++ (   9:1)node(C11){}
+			--++ ( -63:1)node(C12){}
+			--++ (-135:1)node(C13){}
+			--++ ( 153:1)node(C14){};
+ \draw(C14.center) -- (N23);
+ \draw(C13.center) 	--++ ( -60:1) 
+				   	--++ (-120:1) 
+					--++ ( -60:1)node(OC){};
+ \draw[to_1](OC.center)	--++ (-30:1)node[xshift=1mm]{OH};
+ \draw[to_1,double](OC.center)--++(210:1)node{O};
+ \draw(C12.-189) -- (C13.99);
+ %========D
+ \draw(Fe)[to_1,dotted] -- ++(-135:2)node(N24){};
+ \draw[from_0](N24) --++ ( -81:1)node(C16){};
+ \draw(C16.center) --++ (-153:1)node(C17){}
+		    --++ (-225:1)node(C18){}  
+		    --++ (-297:1)node(C19){}; 
+ \draw[from_0](N24)--(C19.center);
+ \draw(C17.center) 	--++ (-120:1) 
+				   	--++ (-60:1) 
+					--++ (-120:1)node(OD){};
+ \draw[to_1](OD.center)	--++ (-30:1)node[xshift=1mm]{OH};
+ \draw[to_1,double](OD.center)--++(210:1)node{O};
+ \draw(C17.-279) -- (C18.-351);
+ \draw(N24.center)node{N};
+ \draw[from_0](N24.-135)--(C16.-207);
+ %========OTHER
+ \draw(C4.center) -- ($(C4)!0.5!(C6)!0.454!90:(C6)$)node(C5){} --(C6.center);
+ \draw(C16.center) -- ($(C16)!0.5!(C14)!-0.454!90:(C14)$)node(C15){} --(C14.center);
+ \draw(C1.center) -- ($(C1)!0.5!(C19)!-0.454!90:(C19)$)node(C20){} --(C19.center);
+ \draw(C9.center) -- ($(C9)!0.5!(C11)!+0.454!90:(C11)$)node(C10){} --(C11.center);
+ \draw[to_1](C3.center) --++ (99:1)node{X};
+ \draw[to_1](C7.center) --++ (81:1)node{CH$_3$};
+ \draw[to_1](C2.center) --++ (171:1)[xshift=-2mm]node{CH$_3$};
+ \draw[to_1](C8.center) --++ (9:1)node{Y};
+ \draw[to_1](C18.center) --++ (189:1)node{Z};
+ \draw[to_1](C12.center) --++ (-9:1)[xshift=2mm]node{CH$_3$};
+ \node[yshift=1cm]at(C5.north){Heme, Haem};
+\end{scope}
+\begin{scope}[scale=0.5]
+ \node(Fe)at(10,0){Fe$^{III}$};
+ \draw[to_1](Fe)--++(90:1)node{Cl};
+ %========A
+ \draw(Fe)[to_1       ] -- ++(135:2)node(N21){N};
+ \draw(N21) --++ (  81:1)node(C4){}
+			--++ ( 153:1)node(C3){}
+			--++ (-135:1)node(C2){}
+			--++ ( -63:1)node(C1){};
+ \draw(C1.center) -- (N21);
+ \draw(C2.-9) -- (C1.63);
+ \draw(C4.207) -- (C3.-81);
+ %========B
+ \draw(Fe)[to_1,dotted] -- ++ (45:2)node(N22){};
+ \draw[from_0](N22) --++ ( -11:1)node(C9){};
+ \draw(C9.center)  --++ (  61:1)node(C8){}
+		    --++ ( 133:1)node(C7){}  
+		    --++ (-155:1)node(C6){}; 
+ \draw[from_0](N22) -- (C6.center);
+ \draw(C8.187) -- (C7.-101);
+ \draw[from_0](N22.43) -- (C9.115);
+ \draw(N22.center)node{N};
+ %========C
+ \draw(Fe)[to_1       ] -- ++(-45:2)node(N23){N};
+ \draw(N23) --++ (   9:1)node(C11){}
+			--++ ( -63:1)node(C12){}
+			--++ (-135:1)node(C13){}
+			--++ ( 153:1)node(C14){};
+ \draw(C14.center) -- (N23);
+ \draw(C13.center) 	--++ ( -60:1) 
+				   	--++ (-120:1) 
+					--++ ( -60:1)node(OC){};
+ \draw[to_1](OC.center)	--++ (-30:1)node[xshift=1mm]{OH};
+ \draw[to_1,double](OC.center)--++(210:1)node{O};
+ \draw(C12.-189) -- (C13.99);
+ %========D
+ \draw(Fe)[to_1,dotted] -- ++(-135:2)node(N24){};
+ \draw[from_0](N24) --++ ( -81:1)node(C16){};
+ \draw(C16.center) --++ (-153:1)node(C17){}
+		    --++ (-225:1)node(C18){}  
+		    --++ (-297:1)node(C19){}; 
+ \draw[from_0](N24)--(C19.center);
+ \draw(C17.center) 	--++ (-120:1) 
+				   	--++ (-60:1) 
+					--++ (-120:1)node(OD){};
+ \draw[to_1](OD.center)	--++ (-30:1)node[xshift=1mm]{OH};
+ \draw[to_1,double](OD.center)--++(210:1)node{O};
+ \draw(C17.-279) -- (C18.-351);
+ \draw(N24.center)node{N};
+ \draw[from_0](N24.-135)--(C16.-207);
+ %========OTHER
+ \draw(C4.center) -- ($(C4)!0.5!(C6)!0.454!90:(C6)$)node(C5){} --(C6.center);
+ \draw(C16.center) -- ($(C16)!0.5!(C14)!-0.454!90:(C14)$)node(C15){} --(C14.center);
+ \draw(C1.center) -- ($(C1)!0.5!(C19)!-0.454!90:(C19)$)node(C20){} --(C19.center);
+ \draw(C9.center) -- ($(C9)!0.5!(C11)!+0.454!90:(C11)$)node(C10){} --(C11.center);
+ \draw[to_1](C3.center) --++ (99:1)node{X};
+ \draw[to_1](C7.center) --++ (81:1)node{CH$_3$};
+ \draw[to_1](C2.center) --++ (171:1)[xshift=-2mm]node{CH$_3$};
+ \draw[to_1](C8.center) --++ (9:1)node{Y};
+ \draw[to_1](C18.center) --++ (189:1)node{Z};
+ \draw[to_1](C12.center) --++ (-9:1)[xshift=2mm]node{CH$_3$};
+ \node[yshift=1cm]at(C5.north){Hemin};
+\end{scope}
+\begin{scope}[scale=0.5]
+ \node(Fe)at(20,0){Fe$^{III}$};
+ \draw[to_1](Fe)--++(90:1)node{OH};
+ %========A
+ \draw(Fe)[to_1       ] -- ++(135:2)node(N21){N};
+ \draw(N21) --++ (  81:1)node(C4){}
+			--++ ( 153:1)node(C3){}
+			--++ (-135:1)node(C2){}
+			--++ ( -63:1)node(C1){};
+ \draw(C1.center) -- (N21);
+ \draw(C2.-9) -- (C1.63);
+ \draw(C4.207) -- (C3.-81);
+ %========B
+ \draw(Fe)[to_1,dotted] -- ++ (45:2)node(N22){};
+ \draw[from_0](N22) --++ ( -11:1)node(C9){};
+ \draw(C9.center)  --++ (  61:1)node(C8){}
+		    --++ ( 133:1)node(C7){}  
+		    --++ (-155:1)node(C6){}; 
+ \draw[from_0](N22) -- (C6.center);
+ \draw(C8.187) -- (C7.-101);
+ \draw[from_0](N22.43) -- (C9.115);
+ \draw(N22.center)node{N};
+ %========C
+ \draw(Fe)[to_1       ] -- ++(-45:2)node(N23){N};
+ \draw(N23) --++ (   9:1)node(C11){}
+			--++ ( -63:1)node(C12){}
+			--++ (-135:1)node(C13){}
+			--++ ( 153:1)node(C14){};
+ \draw(C14.center) -- (N23);
+ \draw(C13.center) 	--++ ( -60:1) 
+				   	--++ (-120:1) 
+					--++ ( -60:1)node(OC){};
+ \draw[to_1](OC.center)	--++ (-30:1)node[xshift=1mm]{OH};
+ \draw[to_1,double](OC.center)--++(210:1)node{O};
+ \draw(C12.-189) -- (C13.99);
+ %========D
+ \draw(Fe)[to_1,dotted] -- ++(-135:2)node(N24){};
+ \draw[from_0](N24) --++ ( -81:1)node(C16){};
+ \draw(C16.center) --++ (-153:1)node(C17){}
+		    --++ (-225:1)node(C18){}  
+		    --++ (-297:1)node(C19){}; 
+ \draw[from_0](N24)--(C19.center);
+ \draw(C17.center) 	--++ (-120:1) 
+				   	--++ (-60:1) 
+					--++ (-120:1)node(OD){};
+ \draw[to_1](OD.center)	--++ (-30:1)node[xshift=1mm]{OH};
+ \draw[to_1,double](OD.center)--++(210:1)node{O};
+ \draw(C17.-279) -- (C18.-351);
+ \draw(N24.center)node{N};
+ \draw[from_0](N24.-135)--(C16.-207);
+ %========OTHER
+ \draw(C4.center) -- ($(C4)!0.5!(C6)!0.454!90:(C6)$)node(C5){} --(C6.center);
+ \draw(C16.center) -- ($(C16)!0.5!(C14)!-0.454!90:(C14)$)node(C15){} --(C14.center);
+ \draw(C1.center) -- ($(C1)!0.5!(C19)!-0.454!90:(C19)$)node(C20){} --(C19.center);
+ \draw(C9.center) -- ($(C9)!0.5!(C11)!+0.454!90:(C11)$)node(C10){} --(C11.center);
+ \draw[to_1](C3.center) --++ (99:1)node{X};
+ \draw[to_1](C7.center) --++ (81:1)node{CH$_3$};
+ \draw[to_1](C2.center) --++ (171:1)[xshift=-2mm]node{CH$_3$};
+ \draw[to_1](C8.center) --++ (9:1)node{Y};
+ \draw[to_1](C18.center) --++ (189:1)node{Z};
+ \draw[to_1](C12.center) --++ (-9:1)[xshift=2mm]node{CH$_3$};
+ \node[yshift=1cm]at(C5.north){Hematin};
+\end{scope}
+\end{tikzpicture}
+\end{document}

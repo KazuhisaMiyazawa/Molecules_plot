@@ -1,0 +1,37 @@
+\documentclass[border=2pt,crop]{standalone}
+\newlinechar=`\^^J
+\input{settings}
+\newcommand{\MOVE}[2]{
+ \ifdimless{15.0pt}{#1pt}{%
+  \message{OK!}
+  \pgfmathtruncatemacro#1{0}
+  \pgfmathparse{#2-7}
+  \pgfmathtruncatemacro#2{\pgfmathresult}
+ }{
+ \pgfmathparse{#1+5}
+ \pgfmathtruncatemacro#1{\pgfmathresult}
+ }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\tikzstyle{every node}=[inner sep=1.7pt,anchor=center]
+\tikzstyle{to_1}=[shorten >=5pt,double]%distance bt c and co
+\tikzstyle{to_2}=[shorten >=7pt]%distance bt CA and c
+\tikzstyle{to_3}=[shorten >=8pt]
+\tikzstyle{from_1}=[shorten <=5pt]
+\tikzstyle{from_1i}=[shorten <=6pt]
+\tikzstyle{from_2}=[shorten <=8pt]
+\edef\col{0}
+\edef\line{0}
+
+ \begin{scope}[scale=0.5]
+ \coordinate(CA)at(\col,\line);
+ \draw[to_2]  (CA.center)	-- ++(30:1) node (CO) {}  
+ 				-- +(330:1) node [anchor=base,xshift=0.5mm] {O$^{-}$};
+ \draw[to_1,double]  (CO.center) 	-- +(90:1) node (Od) {O};
+ \draw[to_3]  (CA.center)	-- ++(150:1) node[xshift=-0.5mm]{NH${_{3}^{+}}$};
+ \node[above=0.6cm of CO,xshift=-0.7mm]{Glysine};
+ \end{scope}
+
+\MOVE{\col}{\line}

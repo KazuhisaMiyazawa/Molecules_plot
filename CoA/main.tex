@@ -1,0 +1,72 @@
+\documentclass[border=2pt,crop]{standalone}
+\input{settings}
+
+\begin{document}
+\begin{tikzpicture}
+\tikzstyle{every node}=[inner sep=1.7pt,anchor=center]
+\tikzstyle{to_01}=[shorten >=3pt]
+\tikzstyle{to_1}=[shorten >=5pt]
+\tikzstyle{to_2}=[shorten >=7pt]%distance bt CA and c
+%\tikzstyle{to_3}=[shorten >=8pt]
+\tikzstyle{from_0}=[shorten <=3pt]
+\tikzstyle{from_1}=[shorten <=5pt]
+%\tikzstyle{from_1i}=[shorten <=6pt]
+\tikzstyle{from_2}=[shorten <=8pt]
+\begin{scope}[scale=0.5]
+ \node(N1)at(0,0){};
+ \draw[from_1](N1.center)	--++(126:1)node(C2){};
+ \draw[to_1](C2.center)	 	--++(54:1)node(N3){};
+ \draw[to_1](C2.0)--(N3.0);
+ \draw[from_1](N3.center)	--++(-28:1)node(C4){};
+ \draw(C4.center)	 		--++(-90:1)node(C9){};
+ \draw(C4.-30)--(C9.30);
+ \draw[to_1](C9.center)--(N1.center);
+ \draw(C4.center)			--++(30:1)node(C5){};
+ \draw[to_1](C5.center)		--++(90:1)node{N};
+ \draw[to_1](C5.center)		--++(-30:1)node(N6){};
+ \draw[to_1](C5.-90)--(N6.-90);
+ \draw[from_1](N6.center) 	--++(-90:1)node(C7){};
+ \draw[to_1](C7.center)		--++(-150:1)node(N8){};
+ \draw[to_1](C7.150)--(N8.150);
+ \draw[from_1](N8.center)	--(C9.center);
+ \draw[from_1](N1.center)--++(-90:1)node(C10){};
+ \draw(C10.center)--++(-135:1)node(C11){};
+ \draw[to_1](C11.center)--++(-90:1)node[xshift=1.5mm]{OH};
+ \draw[very thick](C11.center)--++(-180:1)node(C12){};
+ \draw[to_1](C12.center)--++(-90:1)node(O35){O};
+ \draw[to_1,from_1](O35.center)--++(-180:1)node(P36){P};
+ \draw[from_1,to_1,double](P36.center)--++(90:1)node{O};
+ \draw[from_1,to_1](P36.center)--++(-180:1)node[anchor=east,xshift=1.5mm]{HO};
+ \draw[from_1,to_1](P36.center)--++(-90:1)node[xshift=1.5mm]{OH};
+ \draw(C12.center)--++(135:1)node(C13){};
+ \node(O14)at($(C13.center)!.5!(C10.center)!.5!-90:(C13.center)$){};
+ \draw[to_1](C13.center)--(O14.center);
+ \draw[to_1](C10.center)--(O14.center);
+ \draw(C13.center)--++(90:1)node(C15){};
+ \draw[to_1](C15.center)--++(150:1)node(O16){};
+ \draw[from_1,to_1](O16.center)--++(90:3)node(P17){};
+ \draw[from_1,to_1,double](P17.center)--++(0:1)node{O};
+ \draw[from_1,to_1](P17.center)--++(180:1)node[xshift=-1.5mm]{HO};
+ \draw[from_1,to_1](P17.center)--++(90:1)node(O18){};
+ \draw[from_1,to_1](O18.center)--++(90:1)node(P19){};
+ \draw[from_1,to_1,double](P19.center)--++(90:1)node{O};
+ \draw[from_1,to_1](P19.center)--++(180:1)node[xshift=-1.5mm]{HO};
+ \draw[from_1,to_1](P19.center)--++(0:1)node(O20){};
+ \draw[from_1](O20.center)--++(30:1)--++(-30:1)node(C22){}--++(30:1)node(C23){}
+	--++(-30:1)node(C24){};
+ \draw[to_1](C22.center)--++(90:1);
+ \draw[to_1](C22.center)--++(-90:1);
+ \draw[to_1,double](C24.center)--++(-90:1)node{O};
+ \draw[to_1](C24.center)--++(30:1)node(N25){};
+ \draw[from_1](N25.center)--++(-30:1)--++(30:1)--++(-30:1)node(C28){};
+ \draw[to_1,double](C28.center)--++(-90:1)node{O};
+ \draw[to_1](C28.center)--++(30:1)node(N29){};
+ \draw[from_1](N29.center)--++(-30:1)--++(30:1)--++(-30:1)node[anchor=west]{SH};
+ \node at(N1.center){N};\node at(N3.center){N};\node at(N6.center){N};
+ \node at(N8.center){N};\node at(N25.center){N};\node at(N29.center){N};
+ \node at(O14.center){O};\node at(O16.center){O};\node at(O18.center){O};
+ \node at(O20.center){O};
+ \node at(P17.center){P};\node at(P19.center){P};
+\end{scope}
+\end{tikzpicture}
+\end{document}
