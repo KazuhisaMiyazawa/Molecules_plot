@@ -1,9 +1,12 @@
-\documentclass[border=25pt,crop]{standalone}
+\documentclass[tikz,border=25pt]{standalone}
+\usepackage{fontspec}\setmainfont{Arial}
+\usepackage{pgfplots,ifthen,etoolbox}
+\pgfplotsset{compat=newest,compat/show suggested version=false}
+\usetikzlibrary{positioning,calc}
 \newlinechar=`\^^J
-\input{settings}
+
 \newcommand{\MOVE}[2]{
  \ifdimless{15.0pt}{#1pt}{%
-  \message{OK!}
   \pgfmathtruncatemacro#1{0}
   \pgfmathparse{#2-7}
   \pgfmathtruncatemacro#2{\pgfmathresult}
@@ -16,8 +19,8 @@
 \begin{document}
 \begin{tikzpicture}
 \tikzstyle{every node}=[inner sep=1.7pt,anchor=center]
-\tikzstyle{to_1}=[shorten >=5pt,double]%distance bt c and co
-\tikzstyle{to_2}=[shorten >=7pt]%distance bt CA and c
+\tikzstyle{to_1}=[shorten >=5pt,double]
+\tikzstyle{to_2}=[shorten >=7pt]
 \tikzstyle{to_3}=[shorten >=8pt]
 \tikzstyle{from_1}=[shorten <=5pt]
 \tikzstyle{from_1i}=[shorten <=6pt]
@@ -25,17 +28,17 @@
 \edef\col{0}
 \edef\line{0}
 
- \begin{scope}[scale=0.5]
-  \coordinate(CA)at(\col,\line);
-  \draw[to_2](CA.center)
-   --++(30:1)node(CO){}  
-   --++(330:1)node[anchor=base,xshift=0.5mm]{O$^{-}$};
-  \draw[to_1,double](CO.center)
-   --++(90:1)node(Od){O};
-  \draw[to_3](CA.center)
-   --++(150:1)node[xshift=-0.5mm]{NH${_{3}^{+}}$};
-  \node[above=0.6cm of CO,xshift=-0.7mm]{Glysine, G};
- \end{scope}
+\begin{scope}[scale=0.5]
+ \coordinate(CA)at(\col,\line);
+ \draw[to_2](CA.center)
+  --++(30:1)node(CO){}  
+  --++(330:1)node[anchor=base,xshift=0.5mm]{O$^{-}$};
+ \draw[to_1,double](CO.center)
+  --++(90:1)node(Od){O};
+ \draw[to_3](CA.center)
+  --++(150:1)node[xshift=-0.5mm]{NH${_{3}^{+}}$};
+ \node[above=0.6cm of CO,xshift=-0.7mm]{Glysine, G};
+\end{scope}
 
 \MOVE{\col}{\line}
 
@@ -215,14 +218,11 @@
   --++(90:1)node(Od){O};
  \draw[to_3](CA.center)	
   --++(150:1)node[xshift=-0.5mm]{NH${_{3}^{+}}$};
- \draw[to_2](CA.center)
+ \draw(CA.center)
   --++(270:1)node(Cb){}
   --++(330:1)node(Cc){}
-  --++(-90:1)node(Cd){S};
- \draw[from_1](Cd.center)
+  --++(-90:1)node(Cd)[fill=white]{S}
   --++(330:1);
- %\draw[to_1](Cc.center)
- % --++(270:1)node(O){O};
  \node[above=0.6cm of CO,xshift=-0.7mm]{Methionine, M};
 \end{scope}
 
@@ -250,24 +250,24 @@
 
 \begin{scope}[scale=0.5]
  \coordinate(CA)at(\col,\line);
-\draw[to_2](CA.center)
- --++(30:1)node(CO){}  
- --++(330:1)node[anchor=base,xshift=0.5mm]{O$^{-}$};
-\draw[to_1,double](CO.center)
- --++(90:1)node(Od){O};
-\draw[to_3](CA.center)
- --++(150:1)node[xshift=-0.5mm]{NH${_{3}^{+}}$};
-\draw[to_3](CA.center)
- --++(270:1)node(Cb){}
- --++(330:1)node(Cc){}
- --++(270:1)node(Cd){}
- --++(330:1)node(NH1){NH};
-\draw[from_2,to_3](NH1.center)
- --++(30:1)coordinate(Ce)node[xshift=2mm,yshift=1mm]{$+$}
- --++(330:1)node[xshift=0.5mm]{NH$_{2}$};
-\draw[to_2](Ce.center)
- --++(90:1)node(N2){NH$_{2}$};
-\node[above=0.6cm of CO,xshift=-0.7mm]{Arginine, R};
+ \draw[to_2](CA.center)
+  --++(30:1)node(CO){}  
+  --++(330:1)node[anchor=base,xshift=0.5mm]{O$^{-}$};
+ \draw[to_1,double](CO.center)
+  --++(90:1)node(Od){O};
+ \draw[to_3](CA.center)
+  --++(150:1)node[xshift=-0.5mm]{NH${_{3}^{+}}$};
+ \draw[to_3](CA.center)
+  --++(270:1)node(Cb){}
+  --++(330:1)node(Cc){}
+  --++(270:1)node(Cd){}
+  --++(330:1)node(NH1){NH};
+ \draw[from_2,to_3](NH1.center)
+  --++(30:1)coordinate(Ce)node[xshift=2mm,yshift=1mm]{$+$}
+  --++(330:1)node[xshift=0.5mm]{NH$_{2}$};
+ \draw[to_2](Ce.center)
+  --++(90:1)node(N2){NH$_{2}$};
+ \node[above=0.6cm of CO,xshift=-0.7mm]{Arginine, R};
 \end{scope}
 
 \MOVE{\col}{\line}
